@@ -9,9 +9,13 @@ Genel Özellikler
 • Raporlama: Tüm kitaplar, yazara göre listeleme, en pahalı 10 kitap gibi çeşitli raporlar.
 
 Kullanılan Teknolojiler
+
 • Backend: Entity Framework Core
+
 • Frontend: HTML, CSS, JavaScript
+
 • Veritabanı: SQL Server
+
 • Kimlik Doğrulama: MS Identity
 
 
