@@ -1,0 +1,35 @@
+﻿@model WebApplication1.Models.YayinEvi
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="text-center text-primary mb-4">Yayınevi Ekle</h1>
+                    <form asp-action="YayinEviEkle">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="YayinEviAdi" class="form-label">Yayınevi Adı</label>
+                            <input asp-for="YayinEviAdi" class="form-control" placeholder="Yayınevi adını girin" />
+                            <span asp-validation-for="YayinEviAdi" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Oluştur</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Admin Panel</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

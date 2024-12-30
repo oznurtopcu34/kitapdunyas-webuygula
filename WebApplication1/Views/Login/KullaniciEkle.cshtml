@@ -1,0 +1,62 @@
+﻿@model WebApplication1.Models.ViewModels.KullaniciEkle_VM
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="text-center text-primary mb-4">Kullanıcı Ekle</h1>
+                    <form asp-action="KullaniciEkle">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Ad" class="form-label">Ad</label>
+                            <input asp-for="Ad" class="form-control" placeholder="Adınızı girin" />
+                            <span asp-validation-for="Ad" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Soyad" class="form-label">Soyad</label>
+                            <input asp-for="Soyad" class="form-control" placeholder="Soyadınızı girin" />
+                            <span asp-validation-for="Soyad" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                            <input asp-for="KullaniciAdi" class="form-control" placeholder="Kullanıcı adınızı girin" />
+                            <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Eposta" class="form-label">E-posta</label>
+                            <input asp-for="Eposta" class="form-control" placeholder="E-posta adresinizi girin" />
+                            <span asp-validation-for="Eposta" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Sifre" class="form-label">Şifre</label>
+                            <input asp-for="Sifre" type="password" class="form-control" placeholder="Şifrenizi girin" />
+                            <span asp-validation-for="Sifre" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="SifreTekrar" class="form-label">Şifre Tekrar</label>
+                            <input asp-for="SifreTekrar" type="password" class="form-control" placeholder="Şifrenizi tekrar girin" />
+                            <span asp-validation-for="SifreTekrar" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Geri Dön</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

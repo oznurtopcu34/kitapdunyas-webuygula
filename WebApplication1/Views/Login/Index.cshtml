@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.ViewModels.Login_VM
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm" style="border: 2px solid #ff5733;">
+                <div class="card-body" style="background-color: #ffe6e6;">
+                    <h2 class="card-title text-center mb-4" style="color: #ff5733;">Giriş Yap</h2>
+                    <form asp-action="Index">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="UserName" class="form-label" style="color: #ff5733;">Kullanıcı Adı</label>
+                            <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adınızı girin" style="border: 2px solid #ff5733;" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Password" class="form-label" style="color: #ff5733;">Şifre</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Şifrenizi girin" style="border: 2px solid #ff5733;" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-lg" style="background-color: #ff5733; color: #fff;">Giriş Yap</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

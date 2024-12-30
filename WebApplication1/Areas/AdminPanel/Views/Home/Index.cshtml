@@ -1,0 +1,25 @@
+﻿
+@* @{
+    ViewData["Title"] = "Raporlar ve Yönetim Paneli";
+}
+ *@
+<h2 class="text-black text-center">Raporlar ve Yönetim Paneli</h2>
+
+<div class="row mt-4">
+    <div class="col-md-6 text-start">
+        <h3 class="text-primary">Yönetim İşlemleri</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a asp-action="KitapIslemleri" class="text-decoration-none text-primary">Tüm Kitap İşlemlerini Görüntüle</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6 text-end">
+        <h3 class="text-primary">Raporlar</h3>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><a asp-action="TumKitaplar" class="text-decoration-none text-primary">Tüm Kitapları Görüntüle</a></li>
+            <li class="list-group-item"><a asp-action="YazaraGoreKitaplar" asp-route-yazarId="1" class="text-decoration-none text-primary">Yazara Göre Kitapları Görüntüle</a></li>
+            <li class="list-group-item"><a asp-action="EnPahali10Kitap" class="text-decoration-none text-primary">En Pahalıdan En Ucuza İlk 10 Kitap</a></li>
+            <li class="list-group-item"><a asp-action="TumUyeler" class="text-decoration-none text-primary">Tüm Üyeleri Görüntüle</a></li>
+        </ul>
+    </div>
+</div>
+</div>

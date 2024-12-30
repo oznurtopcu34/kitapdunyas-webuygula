@@ -1,0 +1,84 @@
+﻿@model WebApplication1.Areas.AdminPanel.Models.ViewModel.Kitap_VM
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="text-center text-primary mb-4">Kitap Ekle</h1>
+                    <form asp-action="KitapEkle" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="KitapAdi" class="form-label">Kitap Adı</label>
+                            <input asp-for="KitapAdi" class="form-control" placeholder="Kitap adını giriniz" />
+                            <span asp-validation-for="KitapAdi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="BasimYili" class="form-label">Basım Yılı</label>
+                            <input asp-for="BasimYili" class="form-control" placeholder="Basım yılını giriniz" />
+                            <span asp-validation-for="BasimYili" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Fiyat" class="form-label">Fiyat</label>
+                            <input asp-for="Fiyat" class="form-control" placeholder="Kitap fiyatını giriniz" />
+                            <span asp-validation-for="Fiyat" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="KitapOzeti" class="form-label">Kitap Özeti</label>
+                            <textarea asp-for="KitapOzeti" class="form-control" rows="4" placeholder="Kitap özetini girin"></textarea>
+                            <span asp-validation-for="KitapOzeti" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="KapakResmi" class="form-label">Kapak Resmi</label>
+                            <input asp-for="KapakResmi" type="file" class="form-control" />
+                            <span asp-validation-for="KapakResmi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <div>
+                                @foreach (var kategori in ViewBag.Kategoriler)
+                                {
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="KategoriID" value="@kategori.Value" id="kategori_@kategori.Value">
+                                        <label class="form-check-label" for="kategori_@kategori.Value">
+                                            @kategori.Text
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        
+                            <span asp-validation-for="KategoriID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="YazarID" class="form-label">Yazar</label>
+                            <select asp-for="YazarID" asp-items="ViewBag.Yazarlar" class="form-select"></select>
+                            <span asp-validation-for="YazarID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="YayinEviID" class="form-label">Yayınevi</label>
+                            <select asp-for="YayinEviID" asp-items="ViewBag.YayinEvleri" class="form-select"></select>
+                            <span asp-validation-for="YayinEviID" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Geri Dön</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

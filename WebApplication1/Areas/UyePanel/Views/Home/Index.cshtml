@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.Kitap>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="transition: transform 0.3s;">
+                    <img src="~/Resimler/@item.KapakResmi" class="card-img-top" width="100px" height="150px" alt="Kapak Resmi" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.KitapAdi</h5>
+                        <p class="card-text">
+                            <strong>Basim Yili:</strong> @item.BasimYili <br />
+                            <strong>Fiyat:</strong> @item.Fiyat <br />
+                            <strong>Yazar:</strong> @item.Yazar.YazarAdi <br />
+                            <strong>Yayin Evi:</strong> @item.YayinEvi.YayinEviAdi <br />
+                            <strong>Kitap Özeti</strong> @item.KitapOzeti
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 139, 0.1); /* Dark Blue Tone */
+    }
+</style>

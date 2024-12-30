@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplication1.Models.Kitap>
+
+@{
+    ViewData["Title"] = "EnPahali10Kitap";
+}
+<div class="container mt-5">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col-md-8">
+            <h1 class="text-black text-center">En Pahalı 10 Kitap</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Index" class="btn btn-secondary">Admin Panel</a>
+        </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KapakResmi)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KitapAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasimYili)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KitapOzeti)
+            </th>
+         
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    <td>
+                        <img src="~/Resimler/@item.KapakResmi" width="100px" height="150px" alt="Kapak Resmi" class="img-thumbnail" />
+                    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasimYili)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapOzeti)
+            </td>
+          
+
+        </tr>
+}
+    </tbody>
+</table>

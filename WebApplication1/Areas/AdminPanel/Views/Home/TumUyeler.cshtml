@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApplication1.Models.Kullanici>
+
+
+<div class="container mt-5">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col-md-8">
+            <h1 class="text-black text-center">Tüm Üyeler</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Index" class="btn btn-secondary">Admin Panel</a>
+        </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication1.Models
+@inject UserManager<Kullanici> userManager
+@inject SignInManager<Kullanici> signInManager
+
+@{
+    bool adminMi = false;
+}
+
+@if (signInManager.IsSignedIn(User))
+{
+    {
+        var kullanici = await userManager.GetUserAsync(User);
+        adminMi = await userManager.IsInRoleAsync(kullanici, "Admin");
+    }
+    <label>Merhaba @User.Identity.Name</label>
+    if (adminMi)
+    {
+        <a asp-area="AdminPanel" asp-controller="Home" asp-action="Index" class="btn btn-primary">Admin Paneli</a>
+    }
+    else
+    {
+        <a asp-area="UyePanel" asp-controller="Home" asp-action="Index" class="btn btn-primary">Üye Paneli</a>
+    }
+    <a asp-area="" asp-controller="Login" asp-action="Cikis" class="btn btn-danger">Cikis</a>
+}
+else
+{
+    <a asp-controller="Login" asp-action="Index" class="btn btn-primary">Giris</a>
+    <a asp-controller="Login" asp-action="KullaniciEkle" class="btn btn-secondary">Üye Ol</a>
+
+}
+
+
+

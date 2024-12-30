@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebApplication1.Models.Kitap>
+
+<div class="container mt-5">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col-md-8">
+            <h1 class="text-black">Yazara Göre Kitapları Listele</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Index" class="btn btn-secondary">Admin Panel</a>
+        </div>
+    </div>
+
+    <form asp-controller="Home" asp-action="YazaraGoreKitaplar" method="get" class="mb-4">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-6">
+                <label for="YazarID" class="form-label">Yazar Seçin:</label>
+                <select id="YazarID" name="YazarID" class="form-select" asp-items="ViewBag.Yazarlar">
+                    <option value="">-- Yazar Seçin --</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary mt-2">Kitapları Göster</button>
+            </div>
+        </div>
+    </form>
+
+    <marquee class="text-black text-center mb-4">@ViewBag.YazarAdi Tarafından Yazılan Kitaplar</marquee>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <thead>
+            <tr>
+                <th>
+                    Kapak Resmi
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasimYili)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapOzeti)
+                </th>
+              
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Resimler/@item.KapakResmi" width="100px" height="150px" alt="Kapak Resmi" class="img-thumbnail" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitapAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BasimYili)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitapOzeti)
+                    </td>
+                   
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+
